@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sendgridlabs/go-kinesis"
+	"github.com/fx19880617/go-kinesis"
 )
 
 // MaxKinesisBatchSize is the maximum number of records that Kinesis accepts in a request
@@ -253,7 +253,7 @@ func (b *batchProducer) run() {
 			if len(b.records) >= b.config.BatchSize {
 				b.sendBatch(b.config.BatchSize)
 			} else {
-				time.Sleep(1 * time.Millisecond)
+				time.Sleep(1 * time.Second)
 			}
 		}
 	}
